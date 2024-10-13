@@ -118,7 +118,7 @@ def compute_monthly_statistics(data: pd.DataFrame, meteo_variables: List[str]):
             monthly_stats[f"{variable}_max"] = group[variable].max()
             monthly_stats[f"{variable}_mean"] = group[variable].mean()
             monthly_stats[f"{variable}_min"] = group[variable].min()
-            monthly_stats[f"{variable}_std"] = group[variable].max()
+            monthly_stats[f"{variable}_std"] = group[variable].std()
 
         results.append(monthly_stats)
 
@@ -130,18 +130,23 @@ def plot_timeseries(data: pd.DataFrame):
     cols = len(data["city"].unique())
     fig, axs = plt.subplots(rows, cols, figsize=(10, 6 * rows))
 
+    # Si hay solo una fila o una columna, axs puede ser 1D, debemos asegurarnos de que sea un array 2D
+    if rows == 1:
+        axs = [axs]  # Si hay solo una fila, convierte axs en una lista
+    if cols == 1:
+        axs = [[ax] for ax in axs]  # Si hay solo una columna, haz de cada fila una lista
+
     for i, variable in enumerate(VARIABLES):
         for k, city in enumerate(data["city"].unique()):
             city_data = data[data["city"] == city]
-
-            axs[i, k].plot(
+            axs[i][k].plot(
                 city_data["month"],
                 city_data[f"{variable}_mean"],
                 label=f"{city} (mean)",
                 color=f"C{k}",
             )
 
-            axs[i, k].fill_between(
+            axs[i][k].fill_between(
                 city_data["month"],
                 city_data[f"{variable}_min"],
                 city_data[f"{variable}_max"],
@@ -149,11 +154,14 @@ def plot_timeseries(data: pd.DataFrame):
                 color=f"C{k}",
             )
 
-            axs[i, k].set_xlabel("Date")
-            axs[i, k].set_title(variable)
+            axs[i][k].set_xlabel("Date")
+            axs[i][k].set_title(variable)
             if k == 0:
-                axs[i, k].set_ylabel("Value")
-            axs[i, k].legend()
+                axs[i][k].set_ylabel("Value")
+            axs[i][k].legend()
+
+    plt.tight_layout()
+    plt.show()
 
 
 def main():
