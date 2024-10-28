@@ -4,3 +4,6 @@ APARTADO 1
 tenemos muchos clientes habituales.
 2. Hay regiones predominantes en cuanto a numero de pedidos, pero no podemos sacar informacion precisa
 sin antes investigar cómo de grandes son esas regiones.
+3. Hay muy pocas entradas de familia, mascotas, niños... lo qye podria indicar o bien que se ha agregado hace
+poco tiempo, o que solo se preocupa de rellenarla aquellos usuarios que creen que les traera beneficios,
+no se puede sacar informacion concluyente.
