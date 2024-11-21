@@ -1,9 +1,3 @@
-SOLUTION OF PART 1
-
-- CONVERTIR NB A MARKDOWN
-- HACER MAKE LINT
-- REVISAR CONSEJOS PR 1
-
 TAKE INTO ACCOUNT:
 - DATA DOWNLOADED THROUGH WSL WITH AWS CLI
 
@@ -586,7 +580,7 @@ df_users['num_favs'].fillna(0, inplace=True) # to fill by 0 those without any re
 df_users.dropna().head()
 ```
 
-    /tmp/ipykernel_16447/1283221679.py:6: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+    /tmp/ipykernel_3404/1283221679.py:6: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
     The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
     
     For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
@@ -842,14 +836,11 @@ print(geo_values_n)
 ```python
 geo_counts = df_users['user_nuts1'].value_counts()
 
-plt.figure(figsize=(4, 4))
-plt.pie(geo_counts,
-    labels=geo_counts.index,
-    autopct=lambda p:f'{int(p * sum(geo_counts) / 100)}',
-    startangle=90)
-
-plt.axis('equal')
-plt. title('Geographical Distribution')
+plt.figure(figsize=(6, 4))
+plt.bar(geo_counts.index, geo_counts.values, color='skyblue')
+plt.xlabel('Región NUTS1')
+plt.ylabel('Cantidad de Usuarios')
+plt.title('Distribución Geográfica de Usuarios')
 
 plt.show()
 ```
@@ -860,7 +851,7 @@ plt.show()
     
 
 
-Hay una region muy mayoritaria y otras muy presentes. Quiza se podria sacar informacion acerca del tipo de personas que viven aqui, comportamiento de compra, nivel socioeconomico... se podria crear un 'customer persona'
+There's a region with higher volumen of orders than the others. It'd be a good idea to come up with some hypothesis about why is this happen. Competitors, greater presence in these areas
 
 
 ```python
@@ -1092,8 +1083,6 @@ avg_orders_per_region
 
 
 
-Se podria estimar que la region UKN es pobre, porque se tiene que el numero de pedidos medio es uno y el numero de usuarios de esta zona es menor. Sin embargo, habria que calcular el precio medio del pedido y conocer el numero de personas que viven en cada region para poder estimar mejor esta premisa. Tambien hay que saber si el e-commerce que se esta estudiando esta dirigido a todos los publicos o si por el contrario es un supermercado de productos gourmet, eco... eso podria explicar las tendencias de compra de las regiones
-
 2. Is there any 'period' information?
 
 
@@ -1121,15 +1110,10 @@ plt.xticks(rotation=45)
 # Mostrar el gráfico
 plt.tight_layout()
 plt.show()
-
 ```
 
 
     
-![png](apart_1_files/apart_1_20_0.png)
+![png](apart_1_files/apart_1_19_0.png)
     
 
-
-Podriamos tener en cuenta el numero de pedidos por mes (por ejemplo, una subida x mes), para tener inventario suficiente esos meses. Tambien seria interesante saber qué productos se venden mas esos meses.
-
-Tambien se puede observar que la empresa ha ido creciendo hasta enero de 2022, que ha sufrido una bajada. De marzo no se puede opinar porque no conocemos si marzo ha terminado o no aún.

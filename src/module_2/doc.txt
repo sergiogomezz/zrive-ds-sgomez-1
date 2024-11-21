@@ -1,9 +1,11 @@
-APARTADO 1
+PART 1
 
-1. En casi todas las regiones la media es de 2 pedidos por usuario, lo que nos podría indicar que no
-tenemos muchos clientes habituales.
-2. Hay regiones predominantes en cuanto a numero de pedidos, pero no podemos sacar informacion precisa
-sin antes investigar cómo de grandes son esas regiones.
-3. Hay muy pocas entradas de familia, mascotas, niños... lo qye podria indicar o bien que se ha agregado hace
-poco tiempo, o que solo se preocupa de rellenarla aquellos usuarios que creen que les traera beneficios,
-no se puede sacar informacion concluyente.
+explanation about features is left.
+
+1. In almost all regions, the average is 2 orders per user,
+which might indicate that we don't have many regular customers.
+2. There are predominant regions in terms of the number of orders,
+but we cannot draw precise information without first investigating the size of these regions.
+3. There are very few entries for family, pets, children, etc., 
+which could either indicate that this information was recently added, or that only users who believe 
+it will benefit them bother to fill it out. No conclusive information can be drawn from this.
