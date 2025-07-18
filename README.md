@@ -1,4 +1,4 @@
-# 🚀 zrive-ds
+# 🚀 Zrive - Data Science Program
 
 This repository contains the structure and guidelines for the **Zrive Applied Data Science** program:  
 🔗 [https://zriveapp.com/cursos/zrive-applied-data-science](https://zriveapp.com/cursos/zrive-applied-data-science)
