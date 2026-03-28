@@ -1,26 +1,21 @@
-# 🚀 Zrive - Data Science Program
+# Zrive Applied Data Science Program
 
-This repository contains the structure and guidelines for the **Zrive Applied Data Science** program:  
-🔗 [https://zriveapp.com/cursos/zrive-applied-data-science](https://zriveapp.com/cursos/zrive-applied-data-science)
+Work completed as part of the [Zrive Applied Data Science](https://zriveapp.com/cursos/zrive-applied-data-science) program,
+a hands-on bootcamp focused on building end-to-end ML pipelines following industry best practices.
 
-It is designed to maintain consistency, reproducibility, and best practices across all participants' projects. Inside, you'll find modular code, data access instructions, and standardized tooling for environment setup, testing, and code formatting.
+Topics covered: data ingestion, API integration, preprocessing, feature engineering,
+model training, evaluation, and production-ready code standards (testing, linting, CI).
 
----
+## Setup
 
-## 🛠️ Environment Setup
+Python 3.11.0 via `pyenv` + `poetry` for dependency management.
+```bash
+pyenv install 3.11.0
+poetry install
+```
 
-To ensure consistent development environments, we use:
-
-- **Python 3.11.0**, managed via [`pyenv`](https://github.com/pyenv/pyenv)
-- **Virtual environments and dependencies** managed via [`poetry`](https://python-poetry.org/)
-
-Other alternatives (e.g., `venv`, `pipenv`, `conda`) are valid, but for this course we recommend using `pyenv + poetry`.
-
-> ⚠️ **IMPORTANT**: Never use the system-wide Python installation. Always isolate your project using a virtual environment to avoid conflicts between dependencies.
-
-### 🔧 Step-by-step Setup
-
-1. **Install Python 3.11.0**  
-   Make sure `pyenv` is installed, then run:
-   ```bash
-   pyenv install 3.11.0
+## Usage
+```bash
+make lint   # format with black
+make test   # lint + pytest
+```
